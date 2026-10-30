@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ed">
+  <meta name="description" content="A tiny handmade universe full of little things the stars left for you.">
+  <title>Stardust — a little universe for you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <main id="app">
+    <section class="scene landing active" id="landing" aria-labelledby="landing-title">
+      <div class="landing-orbit orbit-one" aria-hidden="true"></div><div class="landing-orbit orbit-two" aria-hidden="true"></div>
+      <span class="doodle moon-doodle" aria-hidden="true">☾</span><span class="doodle star-doodle s1" aria-hidden="true">✦</span><span class="doodle star-doodle s2" aria-hidden="true">✧</span><span class="doodle star-doodle s3" aria-hidden="true">✧</span>
+      <div class="landing-content">
+        <p class="eyebrow">A LITTLE UNIVERSE, JUST FOR YOU</p>
+        <h1 id="landing-title">S T A R D U S T</h1>
+        <p class="tagline">little things the universe<br>left for you</p>
+        <div class="landing-divider" aria-hidden="true">✦ <span></span> ✦</div>
+        <p class="landing-copy">somewhere in the universe,<br>something is waiting for you.</p>
+        <button class="button button-dark" id="enter-button">enter the galaxy <span>✦</span></button>
+        <p class="landing-foot">take a little breath. you're right on time.</p>
+      </div>
+      <div class="transition-veil" id="transition-veil" aria-hidden="true"></div>
+    </section>
+
+    <section class="scene galaxy" id="galaxy" aria-labelledby="welcome-title" aria-hidden="true">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="galaxy-top"><button class="icon-button sound-toggle" id="sound-toggle" aria-label="Turn sound on" title="Sound off">♫ <span>sound off</span></button><button class="icon-button explore-toggle" id="explore-toggle" aria-expanded="false">✦ explore</button></div>
+      <nav class="explore-menu" id="explore-menu" aria-label="Explore the galaxy" hidden></nav>
+      <div class="welcome-block"><p class="eyebrow">✦ &nbsp; YOU MADE IT &nbsp; ✦</p><h2 id="welcome-title">welcome, <span id="welcome-name">angel</span> <span class="flower">✿</span></h2><p>there are little things waiting for you here.</p><p class="muted">where would you like to go?</p></div>
+      <div class="universe-map" aria-label="Choose an experience">
+        <button class="destination heart-dest" data-scene="hearts"><span class="dest-art art-heart" aria-hidden="true">♡</span><span class="dest-label">HEART CONSTELLATION</span><span class="dest-hint">little reasons you're wonderful</span></button>
+        <button class="destination jar-dest" data-scene="jar"><span class="dest-art art-jar" aria-hidden="true"><svg viewBox="0 0 100 120"><path d="M35 13h30v13l8 8v67a8 8 0 0 1-8 8H35a8 8 0 0 1-8-8V34l8-8z"/><path d="M35 14h30v10H35z"/><path d="M28 56c12-6 32 8 44 0v40a7 7 0 0 1-7 7H35a7 7 0 0 1-7-7z" class="glass-fill"/><path d="M35 67l10-7 9 8-8 8zM51 84l11-8 8 8-9 8zM35 91l8-7 9 8-8 8z" class="paper"/><path d="M34 39h32" class="shine"/></svg></span><span class="dest-label">STARDUST JAR</span><span class="dest-hint">a tiny thing for today</span></button>
+        <button class="destination crystal-dest" data-scene="crystal"><span class="dest-art art-crystal" aria-hidden="true"><svg viewBox="0 0 120 120"><ellipse cx="60" cy="104" rx="36" ry="7"/><path d="M60 17c-22 0-38 17-38 37 0 19 13 30 18 41h40c5-11 18-22 18-41 0-20-16-37-38-37z"/><path d="M40 61c2-11 11-20 22-23" class="shine"/><path d="M43 96h34M40 103h40"/></svg></span><span class="dest-label">COSMIC CRYSTAL</span><span class="dest-hint">ask the universe (gently)</span></button>
+        <button class="destination star-dest" data-scene="your-star"><span class="dest-art art-star" aria-hidden="true">✧</span><span class="dest-label">YOUR STAR</span><span class="dest-hint">some stars are meant to be found</span></button>
+      </div>
+      <div class="shooting-layer" id="shooting-layer" aria-live="polite"></div>
+      <button class="back-home" data-scene="landing" aria-label="Return to the beginning">↶ <span>the beginning</span></button>
+    </section>
+
+    <section class="scene subscene" id="your-star" aria-labelledby="star-title" aria-hidden="true"><div class="scene-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="scene-heading"><p class="eyebrow">A LITTLE BIT OF COSMIC LUCK</p><h2 id="star-title">some stars are meant<br>to be found. <span>✦</span></h2><p>Choose a star. <em>Don't think too hard. Let one choose you.</em></p></div><div class="star-picker" id="star-picker" aria-label="Choose a star"></div><div class="star-result card" id="star-result" hidden></div></section>
+
+    <section class="scene subscene" id="transmission" aria-labelledby="transmission-title" aria-hidden="true"><div class="scene-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="transmission-wrap"><p class="eyebrow">✦ &nbsp; INCOMING TRANSMISSION &nbsp; ✦</p><div class="signal-mark">⌁</div><h2 id="transmission-title">Hey you,</h2><p>You're doing much better than you think.</p><p>Not everything has to make sense yet.<br>Keep going.</p><p>Something lovely may be closer than it looks.</p><p class="signature">— the universe</p><button class="button button-outline" data-scene="galaxy">keep exploring →</button></div></section>
+
+    <section class="scene subscene" id="jar" aria-labelledby="jar-title" aria-hidden="true"><div class="scene-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="jar-layout"><div class="jar-copy"><p class="eyebrow">A SMALL COLLECTION OF SOFT THINGS</p><h2 id="jar-title">the stardust jar</h2><p class="soft-copy">tiny things the universe thought<br>you might need.</p><p class="remaining"><span id="remaining-count">12</span> tiny things remain</p><button class="button button-light" id="pull-note">pull one out <span>✦</span></button></div><div class="jar-stage"><div class="jar-glow"></div><div class="jar-illustration" id="jar-illustration" role="img" aria-label="A little glass jar filled with folded pastel notes"><div class="cork"></div><div class="jar-neck"></div><div class="jar-body"><i class="note n1"></i><i class="note n2"></i><i class="note n3"></i><i class="note n4"></i><i class="note n5"></i><i class="note n6"></i><span class="jar-glint">✧</span></div><div class="jar-foot"></div></div><div class="jar-shelf"></div></div></div><article class="note-card card" id="note-card" hidden aria-live="polite"></article></section>
+
+    <section class="scene subscene" id="hearts" aria-labelledby="heart-title" aria-hidden="true"><div class="scene-stars pink-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="scene-heading"><p class="eyebrow">A CONSTELLATION OF THE GOOD STUFF</p><h2 id="heart-title">little reasons you're wonderful</h2><p><span id="hearts-left">7 little reasons</span> are hiding here.<br><em>pop the hearts to find them.</em></p></div><div class="heart-sky" id="heart-sky"></div><article class="reason-card card" id="reason-card" hidden aria-live="polite"></article><div class="constellation-finish" id="constellation-finish" hidden><div class="heart-constellation" aria-hidden="true">✦────✦<br>╲ &nbsp; ♡ &nbsp; ╱<br>✦────✦</div><p>apparently the universe agrees. ♡</p></div></section>
+
+    <section class="scene subscene crystal-scene" id="crystal" aria-labelledby="crystal-title" aria-hidden="true"><div class="scene-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="crystal-layout"><div class="crystal-art-large" aria-hidden="true"><div class="crystal-aura"></div><svg viewBox="0 0 180 210"><ellipse cx="90" cy="180" rx="55" ry="10"/><path d="M90 18c-34 0-61 27-61 61 0 31 20 48 29 72h64c9-24 29-41 29-72 0-34-27-61-61-61z"/><path d="M58 83c4-18 17-31 35-35" class="shine"/><path d="M60 152h60M52 166h76M42 178h96"/></svg></div><div class="crystal-copy"><p class="eyebrow">THE CELESTIAL ADVICE DESK</p><h2 id="crystal-title">ask the universe</h2><p>the universe knows everything.<br><em>unfortunately, it is also slightly dramatic.</em></p><form id="question-form"><label class="sr-only" for="question">What would you like to ask?</label><input id="question" maxlength="120" placeholder="will everything work out?" autocomplete="off"><div class="category-list" role="group" aria-label="Question category"><button type="button" class="category active" data-category="love">♡ love</button><button type="button" class="category" data-category="career">✦ career</button><button type="button" class="category" data-category="chaos">☄ chaos</button><button type="button" class="category" data-category="food">✿ food</button><button type="button" class="category" data-category="friendship">☾ friendship</button></div><button class="button button-light" type="submit">ask the universe <span>✦</span></button></form><div class="answer" id="answer" aria-live="polite"></div></div></div></section>
+
+    <section class="scene subscene" id="gift" aria-labelledby="gift-title" aria-hidden="true"><div class="scene-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="gift-wrap"><p class="eyebrow">SEND A LITTLE UNIVERSE</p><h2 id="gift-title">make one for someone</h2><p>put a few kind things into the stars for someone you love.</p><form id="gift-form" class="gift-form"><label>Their name<input name="recipient" maxlength="32" required placeholder="someone lovely"></label><label>Your name<input name="sender" maxlength="32" required placeholder="from someone who cares"></label><label>Five little reasons they're wonderful<textarea name="reasons" required rows="5" placeholder="One reason per line"></textarea></label><label>A secret message <span class="optional">(optional)</span><textarea name="secret" maxlength="500" rows="3" placeholder="Something only they should know..."></textarea></label><button class="button button-light" type="submit">make their universe ✦</button></form><div class="share-result" id="share-result" aria-live="polite"></div></div></section>
+
+    <section class="scene subscene final-scene" id="leave-star" aria-labelledby="leave-title" aria-hidden="true"><div class="scene-stars"></div><button class="back-button" data-scene="galaxy">← galaxy</button><div class="leave-card"><p class="eyebrow">A LITTLE MARK IN THE INFINITE</p><h2 id="leave-title">before you leave...</h2><p>would you like to leave something behind in the universe?</p><form id="name-star-form"><label class="sr-only" for="star-name">Name your star</label><input id="star-name" maxlength="32" placeholder="your name, if you'd like" required><button class="button button-light" type="submit">name a star ✦</button></form><div id="named-star" class="named-star" aria-live="polite"></div><button class="button button-outline final-reveal-trigger" id="final-message-trigger">there's one transmission left</button></div><article class="final-message card" id="final-message" hidden></article></section>
+  </main>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
